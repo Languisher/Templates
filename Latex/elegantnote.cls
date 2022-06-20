@@ -473,6 +473,25 @@
   \fi
   \end{center}%
   \par}
+  
+  \renewcommand\tableofcontents{%
+  \hypersetup{linktoc=all, linkcolor=black}
+    \if@twocolumn
+      \@restonecoltrue\onecolumn
+    \else
+      \@restonecolfalse
+    \fi
+    \section*{\contentsname
+        \@mkboth{%
+           \MakeUppercase\contentsname}{\MakeUppercase\contentsname}}%
+    \ifdefstring{\ELEGANT@toc}{twocol}{
+      \setlength{\columnsep}{2em}
+      \begin{multicols}{2}%
+        \@starttoc{toc}
+      \end{multicols}}{
+      \@starttoc{toc}}
+    \if@restonecol\twocolumn\fi}
+
 
 
 \RequirePackage{tikz}
